@@ -20,7 +20,7 @@ foreach ($domain_list as $domain_name)
             if ($ip_old_real != $ip_new_real)
             {
                 echo "Domain Name $domain_name have old ip = $ip_old_real and new ip = $ip_new_real\n";
-                $cmd = "/usr/bin/replace $ip_old_real $ip_new_real -- /var/named/$domain_name.db";
+                $cmd = "/usr/bin/replace $ip_old_real $ip_new_real -- $zone_file";
                 exec("$cmd");
                 $need_dns_reload = 1;
             }
